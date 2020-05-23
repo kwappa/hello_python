@@ -1,2 +1,4 @@
+A = 10
 a = 5
-print (a)
+print ('A = ', A)
+print ('a = ', a)
