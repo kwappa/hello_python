@@ -6,7 +6,5 @@ import random
 # 乱数を発生させる
 r = 0
 for i in range(10):
-    r = random.random()
-    r = int(r * 6 + 1)
+    r = random.uniform(0, 6)
     print (r)
-
