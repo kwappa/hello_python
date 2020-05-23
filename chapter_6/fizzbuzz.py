@@ -1,5 +1,5 @@
-for i in range(1, 51):
-    if i % 15 == 0:
+for i in range(1, 501):
+    if i % 15:
         print ('フィズバズ')
     elif i % 5 == 0:
         print ('バズ')
