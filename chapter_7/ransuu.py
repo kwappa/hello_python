@@ -7,4 +7,5 @@ import random
 r = 0
 for i in range(10):
     r = random.uniform(0, 6)
+    r = int(r + 1)
     print (r)
