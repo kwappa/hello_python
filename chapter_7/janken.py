@@ -13,7 +13,15 @@ while num <= 10:
 # 文字が1、2、3だった場合
     if (key == "1" or key == "2" or key == "3"):
         you = int(key)
-        print (you)
+# 数字をじゃんけんの手に置き換える
+        if you == 1:
+            you_no_te = "グー"
+        elif you == 2:
+            you_no_te = "チョキ"
+        elif you == 3:
+            you_no_te = "パー"
+
+        print (you_no_te)
         num += 1
     else:
         print ("1〜3の数字を入力してください！")
