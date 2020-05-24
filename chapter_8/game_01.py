@@ -1,8 +1,12 @@
 # ウィンドウを作るモジュールを読み込む
 from tkinter import *
 
-# ウィンドウ表示の命令
+# ウィンドウの作成
 win = Tk()
+cv = Canvas(win, width = 640, height = 480)
 
-# ウインドウの表示
+# キャンバスの表示命令
+cv.pack()
+
+# ウインドウの表示命令
 win.mainloop()
