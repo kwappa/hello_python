@@ -16,13 +16,13 @@ def init_game():
     is_gameover = False
     ball_ichi_x = 0
     ball_ichi_y = 250
-    ball_idou_x = 20
-    ball_idou_y = -20
+    ball_idou_x = 10
+    ball_idou_y = -10
     ball_size = 10
     racket_ichi_x = 0
     racket_size = 100
     point = 0
-    speed = 30
+    speed = 20
     win.title("スカッシュゲーム : スタート！")
 
 # 画面の描画
