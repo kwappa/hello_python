@@ -1,23 +1,44 @@
+# Pythonジャンケンゲーム
+
 # 乱数のモジュールをインポート
 import random
 
+# 強引な画面クリア
+for i in range(50):
+    print("\r")
+
 # 変数の宣言
-num = 1
-you = 0
+## 勝ち数、負け数、あいこの数を0にする
+kachi = make = aiko = 0
+try_again = 0
+you = pc = 0
+
+## プレイヤーの手とパソコンの手の変数が文字タイプであることを宣言
+you_no_te = pc_no_te = ""
+
+## キー入力の変数が文字タイプであることを宣言
 key = ""
 
-# 10回繰り返す
+## 表示するメッセージを定義
+you_win = "あなたの勝ち"
+pc_win = "あなたの負け"
+draw = "あいこ"
+hantei = ""
+
+# 10回繰り返し
+num = 1
 while num <= 10:
+
+# キー入力
     print (num, "回目")
     print ("あなたが出すのは？(「1=グー 2=チョキ \
 3=パー」の後にEnterを押す)")
-# 文字の入力
     key = input()
-# 文字が1、2、3だった場合
     if (key == "1" or key == "2" or key == "3"):
         you = int(key)
         num += 1
-# 数字をじゃんけんの手に置き換える
+
+# 入力チェック
         if you == 1:
             you_no_te = "グー"
         elif you == 2:
@@ -27,7 +48,8 @@ while num <= 10:
 
 # 整数の乱数を1〜3の範囲で発生させる
         pc = random.randint(1, 3)
-# 乱数で出た数字をじゃんけんの手に置き換える
+
+# 乱数で出た数字をジャンケンの手に置き換える
         if pc == 1:
             pc_no_te = "グー"
         elif pc == 2:
@@ -39,5 +61,6 @@ while num <= 10:
         print ("あなたが出したのは……", you_no_te, "でした")
         print ("パソコンが出したのは……", pc_no_te, "でした")
 
+# キー入力が「1〜3」以外だったときの処理
     else:
         print ("1〜3の数字を入力してください！")
