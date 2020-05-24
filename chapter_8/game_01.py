@@ -3,6 +3,14 @@
 from tkinter import *
 import random
 
+# OSによって音を鳴らすモジュールをインポート
+import platform
+pf_name = platform.system()
+if (pf_name == "Windows"):
+    import winsound
+if (pf_name == "Darwin"):
+    import os
+
 # ウィンドウの作成
 win = Tk()
 cv = Canvas(win, width = 640, height = 480)
@@ -50,10 +58,12 @@ def move_ball():
     # 左右の壁に当たったかの判定
     if (ball_ichi_x + ball_idou_x < 0 or ball_ichi_x + ball_idou_x > 640):
         ball_idou_x *= -1
+        beep("wall")
 
     # 天井に当たったかの判定
     if (ball_ichi_y + ball_idou_y < 0):
         ball_idou_y *= -1
+        beep("wall")
 
     # ラケットに当たったかの判定
     if (ball_ichi_y + ball_idou_y > 470 and (racket_ichi_x <= (ball_ichi_x + ball_idou_x) <= (racket_ichi_x + racket_size))):
@@ -73,6 +83,7 @@ def move_ball():
             message = "よしッ！"
         if mes == 4:
             message = "すてき！"
+        beep("racket")
         win.title(message + " 得点 = " + str(point))
 
     # ミスしたときの判定
@@ -85,6 +96,7 @@ def move_ball():
         if mes == 2:
             message = "あーあ、見てられないね！"
         is_gameover = True
+        beep("gameover")
         win.title(message + " 得点 = " + str(point))
 
     # ボールの位置を移動
@@ -105,6 +117,25 @@ def click(event):               # クリックで再スタート
 # マウスの動きとクリックの確認
 win.bind('<Motion>', motion)
 win.bind('<Button>', click)
+
+# 音を鳴らす
+def beep(position):
+    # Windowsの場合 : winsoundでビープ音を鳴らす
+    if pf_name == "Windows":
+        if (position == "wall"):
+            winsound.beep(1320, 50)
+        elif (position == "racket"):
+            winsound.beep(2000, 50)
+        else:
+            winsound.beep(200, 800)
+    # Darwin(macOS)の場合 : システムのsayコマンドを使う
+    if pf_name == "Darwin":
+        if (position == "wall"):
+            os.system('say "ピン" &')
+        elif (position == "racket"):
+            os.system('say "ポン" &')
+        else:
+            os.system('say "あーあ…" &')
 
 # ゲームの繰り返し処理の指令
 def game_loop():
