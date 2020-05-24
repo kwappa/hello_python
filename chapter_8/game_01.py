@@ -80,7 +80,7 @@ def motion(event):              # マウスポインタの位置確認
     racket_ichi_x = event.x
 
 def click(event):               # クリックで再スタート
-    if event.num == 1:
+    if event.num == 1 and is_gameover:
         init_game()
 
 # マウスの動きとクリックの確認
