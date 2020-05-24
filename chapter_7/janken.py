@@ -1,3 +1,6 @@
+# 乱数のモジュールをインポート
+import random
+
 # 変数の宣言
 num = 1
 you = 0
@@ -13,6 +16,7 @@ while num <= 10:
 # 文字が1、2、3だった場合
     if (key == "1" or key == "2" or key == "3"):
         you = int(key)
+        num += 1
 # 数字をじゃんけんの手に置き換える
         if you == 1:
             you_no_te = "グー"
@@ -21,7 +25,19 @@ while num <= 10:
         elif you == 3:
             you_no_te = "パー"
 
-        print (you_no_te)
-        num += 1
+# 整数の乱数を1〜3の範囲で発生させる
+        pc = random.randint(1, 3)
+# 乱数で出た数字をじゃんけんの手に置き換える
+        if pc == 1:
+            pc_no_te = "グー"
+        elif pc == 2:
+            pc_no_te = "チョキ"
+        elif pc == 3:
+            pc_no_te = "パー"
+
+# あなたの手とパソコンの手の表示
+        print ("あなたが出したのは……", you_no_te, "でした")
+        print ("パソコンが出したのは……", pc_no_te, "でした")
+
     else:
         print ("1〜3の数字を入力してください！")
