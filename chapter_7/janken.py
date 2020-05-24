@@ -61,6 +61,26 @@ while num <= 10:
         print ("あなたが出したのは……", you_no_te, "でした")
         print ("パソコンが出したのは……", pc_no_te, "でした")
 
+# 勝ち負けの判定
+        if you == pc:               # プレイヤーとパソコンの手が同じだったら
+            hantei = hikiwake       # 判定は引き分け
+        if you == 1 and pc == 2:    # プレイヤーがグー、パソコンがチョキだったら
+            hantei = you_win        # 判定はプレイヤーの勝ち
+        if you == 1 and pc == 3:    # プレイヤーがグー、パソコンがパーだったら
+            hantei = pc_win         # 判定はプレイヤーの負け
+        if you == 2 and pc == 3:    # プレイヤーがチョキ、パソコンがパーだったら
+            hantei = you_win        # 判定はプレイヤーの勝ち
+        if you == 2 and pc == 1:    # プレイヤーがチョキ、パソコンがグーだったら
+            hantei = pc_win         # 判定はプレイヤーの負け
+        if you == 3 and pc == 1:    # プレイヤーがパー、パソコンがグーだったら
+            hantei = you_win        # 判定はプレイヤーの勝ち
+        if you == 3 and pc == 2:    # プレイヤーがパー、パソコンがチョキだったら
+            hantei = pc_win         # 判定はプレイヤーの負け
+
+# 勝ち負けの判定を表示
+        print ("判定は……", hantei, "でした！")
+        print ("\n")
+
 # キー入力が「1〜3」以外だったときの処理
     else:
         print ("1〜3の数字を入力してください！")
