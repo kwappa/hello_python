@@ -81,6 +81,17 @@ while num <= 10:
         print ("判定は……", hantei, "でした！")
         print ("\n")
 
+# 勝ち・負け・あいこの回数を足す
+        if hantei == you_win:
+            kachi += 1
+        if hantei == pc_win:
+            make += 1
+        if hantei == hikiwake:
+            aiko += 1
+
 # キー入力が「1〜3」以外だったときの処理
     else:
         print ("1〜3の数字を入力してください！")
+
+# 最終結果の表示
+print ("10回じゃんけんした結果は　あなたの", kachi, "勝", make, "敗", aiko, "引き分けでした")
