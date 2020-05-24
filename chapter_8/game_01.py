@@ -61,12 +61,31 @@ def move_ball():
         if (random.randint(0,1) == 0):
             ball_idou_x *= -1
         point += 10
-        win.title("得点 = " + str(point))
+
+        mes = random.randint(0, 4)
+        if mes == 0:
+            message = "うまい！"
+        if mes == 1:
+            message = "グッド！"
+        if mes == 2:
+            message = "ナイス！"
+        if mes == 3:
+            message = "よしッ！"
+        if mes == 4:
+            message = "すてき！"
+        win.title(message + " 得点 = " + str(point))
 
     # ミスしたときの判定
     if (ball_ichi_y + ball_idou_y >= 480):
+        mes = random.randint(0, 2)
+        if mes == 0:
+            message = "ヘタくそ！"
+        if mes == 1:
+            message = "ミスしたね！"
+        if mes == 2:
+            message = "あーあ、見てられないね！"
         is_gameover = True
-        win.title("得点 = " + str(point))
+        win.title(message + " 得点 = " + str(point))
 
     # ボールの位置を移動
     if (0 <= ball_ichi_x + ball_idou_x <= 640):
