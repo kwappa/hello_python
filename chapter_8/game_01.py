@@ -21,8 +21,10 @@ def draw_screen():
     # キャンバス（画面）の作成
     cv.create_rectangle(0, 0, 640, 480, fill = "white", width = 0)
 
+# ボールを描く
 def draw_ball():
-    # ボールを描く
+    global ball_ichi_x, ball_ichi_y, ball_idou_x, ball_idou_y
+
     cv.create_oval(ball_ichi_x - ball_size, ball_ichi_y - ball_size,
         ball_ichi_x + ball_size, ball_ichi_y + ball_size,
         fill = "red")
